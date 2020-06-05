@@ -1,0 +1,30 @@
+{% extends 'headerPage.html' %}
+
+{% block content%}
+
+<h2>Subir imagen para clasificación</h2>
+
+
+<br>
+
+<form method="post" enctype="multipart/form-data" action="predictImage">
+
+    {% csrf_token %}
+    <label for="fname"></label>Cargue el archivo de imagen aquí:</label><br><br>
+    <center>
+        <input name="filePath" type="file"><br><br>
+    </center>
+    <input type="submit" value="Submit"><br><br>
+
+    <h2>La clasificación de la imagen es: {{predictedLabel}}</h2>
+    <table>
+        <tr>
+            <td> <img width="400" height="400" src={{filePathName}} alt='imagename'></td>
+            <td>{{filePathName}}</td>
+        </tr>
+    </table>
+</form>
+<br>
+
+
+{% endblock %}
