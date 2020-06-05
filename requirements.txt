@@ -1,8 +1,4 @@
 tensorflow
 keras
 Django
-djangorestframework
-drf-yasg
-numpy
-pandas
-sklearn
+Pillow
