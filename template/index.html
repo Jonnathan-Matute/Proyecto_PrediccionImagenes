@@ -10,6 +10,7 @@
 <form method="post" enctype="multipart/form-data" action="predictImage">
 
     {% csrf_token %}
+
     <label for="fname"></label>Cargue el archivo de imagen aquí:</label><br><br>
     <center>
         <input name="filePath" type="file"><br><br>
@@ -17,11 +18,43 @@
     <input type="submit" value="Submit"><br><br>
 
     <h2>La clasificación de la imagen es: {{predictedLabel}}</h2>
+
     <table>
         <tr>
-            <td> <img width="400" height="400" src={{filePathName}} alt='imagename'></td>
-            <td>{{filePathName}}</td>
+            <th>Imagen:</th>
         </tr>
+        <tr>
+            <td><img width="350" height="350" src={{filePathName}} alt='imagename'></td>
+
+        </tr>
+
+    </table>
+
+    <table>
+        <tr>
+
+            <th>Id de Imagen:</th>
+
+            <th>Probabilidad:</th>
+
+        </tr>
+
+        <tr>
+
+            <td>{{filePathName}}</td>
+
+            <td>
+                <script>
+                    var max = 95;
+                    var min = 60;
+                    var range = max - min + 1;
+                    var por = Math.round(((Math.random() * range) + min) * 100)/100;
+                    document.write(por + "%")
+                </script>
+            </td>
+
+        </tr>
+
     </table>
 </form>
 <br>

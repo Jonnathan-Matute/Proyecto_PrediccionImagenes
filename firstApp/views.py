@@ -2,7 +2,6 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.core.files.storage import FileSystemStorage
-
 from keras.models import load_model
 from keras.preprocessing import image
 import tensorflow as tf
@@ -51,11 +50,14 @@ def predictImage(request):
     predictedLabel=labelInfo[str(np.argmax(predi[0]))]
 
     context={'filePathName':filePathName,'predictedLabel':predictedLabel[1]}
-    return render(request,'index.html',context) 
+
+    return render(request,'index.html',context)
+
+ 
 
 def viewDataBase(request):
     import os
     listOfImages=os.listdir('./media/')
     listOfImagesPath=['./media/'+i for i in listOfImages]
     context={'listOfImagesPath':listOfImagesPath}
-    return render(request,'viewDB.html',context) 
+    return render(request,'viewDB.html',context)

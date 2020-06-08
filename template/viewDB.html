@@ -3,9 +3,19 @@
 {% block content%}
 
 {% for i in listOfImagesPath %}
-
-<img src={{i}} width="200" height="200"> <br>
-
+<table>
+    <tr>
+        <th>
+            Imagenes 
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <img src={{i}} width="200" height="200"> <br>
+        </td>
+    </tr>
+    
+</table>
 {% endfor%}
 
 {% endblock %}
